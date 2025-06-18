@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steve Jobs - A Tribute</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #000;
+            overflow-x: hidden;
+        }
+
+        .hero-section {
+            background: #000;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .hero-dates {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: #ccc;
+            margin-bottom: 80px;
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            border: 2px solid white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0 auto;
+        }
+
+        .play-button:hover {
+            background: white;
+            color: black;
+            transform: scale(1.1);
+        }
+
+        .play-icon {
+            width: 0;
+            height: 0;
+            border-left: 20px solid currentColor;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            margin-left: 5px;
+        }
+
+        .quote-section {
+            background: #f5f5f5;
+            padding: 120px 20px;
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .quote-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .quote-text {
+            font-size: 2.5rem;
+            font-weight: 300;
+            line-height: 1.3;
+            color: #333;
+        }
+
+        .quote-image {
+            text-align: center;
+        }
+
+        .steve-photo {
+            width: 400px;
+            height: 500px;
+            background: linear-gradient(135deg, #666, #999);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .steve-photo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500"><rect width="400" height="500" fill="%23f0f0f0"/><circle cx="200" cy="180" r="60" fill="%23ccc"/><rect x="170" y="240" width="60" height="80" fill="%23ccc"/><text x="200" y="380" text-anchor="middle" font-family="Arial" font-size="16" fill="%23999">Steve Jobs</text></svg>') center/cover;
+        }
+
+        .biography-section {
+            background: #000;
+            color: white;
+            padding: 120px 20px;
+            text-align: center;
+        }
+
+        .biography-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .biography-title {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 60px;
+            letter-spacing: 1px;
+        }
+
+        .biography-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #ccc;
+            text-align: left;
+            margin-bottom: 40px;
+        }
+
+        .achievements-section {
+            background: #f5f5f5;
+            padding: 120px 20px;
+        }
+
+        .achievements-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .achievements-title {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 80px;
+            color: #333;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .achievement-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .achievement-year {
+            font-size: 1.1rem;
+            color: #999;
+            margin-bottom: 10px;
+        }
+
+        .achievement-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .achievement-desc {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .timeline-section {
+            background: #000;
+            color: white;
+            padding: 120px 20px;
+        }
+
+        .timeline-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline-title {
+            font-size: 3.5rem;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 50px;
+            padding: 30px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .timeline-year {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fff;
+            min-width: 120px;
+            margin-right: 40px;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .timeline-content p {
+            font-size: 1.1rem;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .footer {
+            background: #111;
+            color: #999;
+            text-align: center;
+            padding: 60px 20px;
+            border-top: 1px solid #333;
+        }
+
+        .footer p {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .footer a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #999;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-dates {
+                font-size: 1.3rem;
+            }
+
+            .quote-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .quote-text {
+                font-size: 1.8rem;
+            }
+
+            .steve-photo {
+                width: 300px;
+                height: 400px;
+            }
+
+            .biography-title,
+            .achievements-title,
+            .timeline-title {
+                font-size: 2.5rem;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                text-align: left;
+            }
+
+            .timeline-year {
+                margin-bottom: 15px;
+                margin-right: 0;
+            }
+
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Hero Section -->
+<section class="hero-section">
+    <h1 class="hero-title">Steve Jobs</h1>
+    <p class="hero-dates">1955 - 2011</p>
+    <div class="play-button">
+        <div class="play-icon"></div>
+    </div>
+</section>
+
+<!-- Quote Section -->
+<section class="quote-section">
+    <div class="quote-container">
+        <div class="quote-text">
+            Design is not just what it looks like and feels like. Design is how it works.
+        </div>
+        <div class="quote-image">
+            <div class="steve-photo">
+                <!-- Photo placeholder -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Biography Section -->
+<section class="biography-section">
+    <div class="biography-container">
+        <h2 class="biography-title">Biography</h2>
+        <p class="biography-text">
+            Steven Paul "Steve" Jobs was an American information technology entrepreneur and inventor. He was the cofounder, chairman, and CEO of Apple Inc; CEO and largest shareholder of Pixar Animation Studios; and founder, chairman, and CEO of NeXT Inc. Jobs is widely recognized as a pioneer of the microcomputer revolution of the 1970s, along with Apple co-founder Steve Wozniak.
+        </p>
+        <p class="biography-text">
+            Creative entrepreneur whose passion for perfection and ferocious drive revolutionized six industries: personal computers, animated movies, music, phones, tablet computing, and digital publishing.
+        </p>
+    </div>
+</section>
+
+<!-- Achievements Section -->
+<section class="achievements-section">
+    <div class="achievements-container">
+        <h2 class="achievements-title">Key Achievements</h2>
+        <div class="achievements-grid">
+            <div class="achievement-card">
+                <div class="achievement-year">1976</div>
+                <h3 class="achievement-title">Apple Computer</h3>
+                <p class="achievement-desc">Co-founded Apple Computer Company with Steve Wozniak, starting the personal computer revolution.</p>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-year">1984</div>
+                <h3 class="achievement-title">Macintosh</h3>
+                <p class="achievement-desc">Launched the first mass-market personal computer with a graphical user interface.</p>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-year">1986</div>
+                <h3 class="achievement-title">Pixar</h3>
+                <p class="achievement-desc">Founded Pixar Animation Studios, revolutionizing animated filmmaking with Toy Story.</p>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-year">2001</div>
+                <h3 class="achievement-title">iPod</h3>
+                <p class="achievement-desc">Introduced the iPod, transforming the music industry with "1,000 songs in your pocket."</p>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-year">2007</div>
+                <h3 class="achievement-title">iPhone</h3>
+                <p class="achievement-desc">Launched the iPhone, redefining smartphones and creating the mobile app ecosystem.</p>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-year">2010</div>
+                <h3 class="achievement-title">iPad</h3>
+                <p class="achievement-desc">Created the iPad, establishing the modern tablet computing category.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Timeline Section -->
+<section class="timeline-section">
+    <div class="timeline-container">
+        <h2 class="timeline-title">Life Timeline</h2>
+        <div class="timeline-item">
+            <div class="timeline-year">1955</div>
+            <div class="timeline-content">
+                <h3>Born in San Francisco</h3>
+                <p>Steven Paul Jobs was born and later adopted by Paul and Clara Jobs.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-year">1976</div>
+            <div class="timeline-content">
+                <h3>Apple Founded</h3>
+                <p>Co-founded Apple Computer Company with Steve Wozniak in the Jobs family garage.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-year">1985</div>
+            <div class="timeline-content">
+                <h3>Left Apple</h3>
+                <p>Departed Apple due to internal conflicts and founded NeXT Computer.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-year">1997</div>
+            <div class="timeline-content">
+                <h3>Return to Apple</h3>
+                <p>Returned to Apple as interim CEO when Apple acquired NeXT.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-year">2005</div>
+            <div class="timeline-content">
+                <h3>Stanford Speech</h3>
+                <p>Delivered the famous "Stay Hungry, Stay Foolish" commencement address.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-year">2011</div>
+            <div class="timeline-content">
+                <h3>Legacy Lives On</h3>
+                <p>Passed away on October 5, 2011, leaving behind a revolutionary legacy in technology.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <p>Steve Jobs' vision continues to inspire innovation worldwide.</p>
+    <p>"The people crazy enough to think they can change the world are the ones who do."</p>
+    <p>Made with ❤️ by <a href="#">Tribute Creator</a></p>
+</footer>
+</body>
+</html>

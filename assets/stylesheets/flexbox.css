@@ -1,0 +1,21 @@
+body {
+    min-height: 400px;
+    display: flex;
+    border: cornflowerblue solid 2px;
+    /*flex-direction: column;*/
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.box {
+    height: 100px;
+    width: 100px;
+    background-color: indianred;
+    font-size: 20pt;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
